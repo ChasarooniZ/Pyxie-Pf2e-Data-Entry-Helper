@@ -1,15 +1,21 @@
 ![](https://img.shields.io/badge/Foundry-v13-informational)
 
 
-# Pyxie/
+# Pyxie. PF2e Data Entry Helper Module
 
-Does something, probably
+> A module that flags NPC abilities if they don't have a set category. Just like changes the color of the name on the sheet to red if there's no category set or something, to help keep us from missing those. Bonus points if it flags for any world link on the item description/self-applied effect/rule elements as well (like red for world link, orange for category or whatever)
 
 ## Table of Contents
 - [Changelog](#changelog)
-- [Contributors](#contributors)
+- [Features](#features)
 
 ## Changelog
 You can access the changelog [here](/CHANGELOG.md).
-## Contributors
-You can see everyone else who contributed to the module [here](CONTRIBUTORS.md)
+## Features
+- **Highlight No Category**
+  - flags NPC abilities if they don't have a set category. Just like changes the color of the name on the sheet to red if there's no category set or something, to help keep us from missing those.
+## Upcoming Features
+- [ ] **Highlight World Link UUIDs**
+  - Colors a Link if it connects to a specific UUID that is in the world not in a compendium
+- [ ] **Highlight Actions with World Link UUIDs**
+  - [ ] 
