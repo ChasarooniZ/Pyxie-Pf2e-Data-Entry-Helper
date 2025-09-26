@@ -1,7 +1,6 @@
 ## 0.1.0
 
-- **Added**
-  - **Highlight No Category**
-    - Highlights NPC actions with no category in Orange
-  - **Highlight Actions with World Link UUIDs**
-    - Highlights actions on cahracter sheets with WOrld link UUIDs (and highlights which tabs/rules etc.) have issues in Red
+- **Highlight No Category**
+  - Highlights NPC actions with no category in Orange
+- **Highlight Actions with World Link UUIDs**
+  - Highlights NPC actions on with World link (Links to an object in the world not a compendium) it also highlights which tabs or particular rules have issues in Red
