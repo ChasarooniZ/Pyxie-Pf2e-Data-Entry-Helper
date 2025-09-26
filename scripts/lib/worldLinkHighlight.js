@@ -90,10 +90,10 @@ function hasWorldLinkSelfEffect(action) {
 
 function hasWorldLinkRuleElement(action) {
     return action?.system?.rules?.some(rule =>
-        !rule.uuid?.startsWith('Compendium') ||
+        (rule?.uuid && !rule.uuid?.startsWith('Compendium')) ||
         rule?.effects?.some(effect =>
             effect?.uuid &&
-            effect?.uuid?.startsWith('Compendium')
+            !effect?.uuid?.startsWith('Compendium')
         )
     )
 }
