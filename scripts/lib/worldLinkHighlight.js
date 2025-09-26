@@ -43,7 +43,7 @@ async function renderItemSheetPF2e(sheet, html) {
     const actualHTMl = html?.[0];
 
     if (hasWorldLinkDescription(action)) {
-        styleTab('description')
+        styleTab('description', actualHTMl)
 
         const contentLinks = document.querySelectorAll('sheet-body .content-link[data-uuid]');
         contentLinks.forEach(link => {
@@ -55,7 +55,7 @@ async function renderItemSheetPF2e(sheet, html) {
     }
 
     if (hasWorldLinkSelfEffect(action)) {
-        styleTab('details')
+        styleTab('details', actualHTMl)
 
         const selfEffect = actualHTMl
             .querySelector('.form-group[data-drop-zone="self-applied-effect"]')
@@ -63,7 +63,7 @@ async function renderItemSheetPF2e(sheet, html) {
     }
 
     if (hasWorldLinkRuleElement(action)) {
-        styleTab('rules')
+        styleTab('rules', actualHTMl)
         const relevantRulesIDXs = getWorldLinkRuleElementIDXs(action);
 
         const elements = actualHTMl.querySelectorAll('section.rule-form');
@@ -87,16 +87,16 @@ function hasWorldLinkDescription(action) {
 }
 
 function hasWorldLinkSelfEffect(action) {
-    return !!action?.system.selfEffect.uuid &&
-        !action?.system.selfEffect.uuid?.startWith('Compendium');
+    return !!action?.system?.selfEffect?.uuid &&
+        !action?.system?.selfEffect?.uuid?.startsWith('Compendium');
 }
 
 function hasWorldLinkRuleElement(action) {
     return action?.system?.rules?.some(rule =>
-        !rule.uuid?.startWith('Compendium') ||
+        !rule.uuid?.startsWith('Compendium') ||
         rule?.effects?.some(effect =>
             effect?.uuid &&
-            effect?.uuid?.startWith('Compendium')
+            effect?.uuid?.startsWith('Compendium')
         )
     )
 }
