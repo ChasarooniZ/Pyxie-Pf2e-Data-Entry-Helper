@@ -77,9 +77,9 @@ async function renderItemSheetPF2e(sheet, html) {
 }
 
 function styleTab(tab) {
-    const tab = actualHTMl
+    const tabHTML = actualHTMl
         .querySelector(`.sheet-tabs .tabs a.list-row[data-tab="${tab}"]`)
-    tab.classList.add(tag)
+    tabHTML.classList.add(tag)
 }
 
 function hasWorldLinkDescription(action) {
