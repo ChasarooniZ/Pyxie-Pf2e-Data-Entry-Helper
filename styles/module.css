@@ -4,26 +4,26 @@ li.item.action.flexrow.pyxie-missing-category {
 }
 
 li.item.action.flexrow.pyxie-world-link {
-  color: orangered;
+  color: red;
 }
 
 .sheet-tabs .tabs a.list-row.pyxie-world-link {
-  color: orangered;
+  color: red;
 }
 
 .form-group.pyxie-world-link[data-drop-zone="self-applied-effect"] {
-    label {
-        color: orangered
-    }
-    a.content-link {
-        color: orangered
-    }
+  label {
+    color: red;
+  }
+  a.content-link {
+    color: red;
+  }
 }
 
 .rule-form.pyxie-world-link h3 {
-    color: orangered
+  color: red;
 }
 
 sheet-body .content-link.pyxie-world-link[data-uuid] {
-    color: orangered
+  color: red;
 }

@@ -40,10 +40,10 @@ async function renderActorSheetPF2e(sheet, html) {
 
 async function renderItemSheetPF2e(sheet, html) {
     const action = sheet?.object;
-    const actualHTMl = html?.[0];
+    const actualHTML = html?.[0];
 
     if (hasWorldLinkDescription(action)) {
-        styleTab('description', actualHTMl)
+        styleTab('description', actualHTML)
 
         const contentLinks = document.querySelectorAll('sheet-body .content-link[data-uuid]');
         contentLinks.forEach(link => {
@@ -55,18 +55,18 @@ async function renderItemSheetPF2e(sheet, html) {
     }
 
     if (hasWorldLinkSelfEffect(action)) {
-        styleTab('details', actualHTMl)
+        styleTab('details', actualHTML)
 
-        const selfEffect = actualHTMl
+        const selfEffect = actualHTML
             .querySelector('.form-group[data-drop-zone="self-applied-effect"]')
         selfEffect.classList.add(tag)
     }
 
     if (hasWorldLinkRuleElement(action)) {
-        styleTab('rules', actualHTMl)
+        styleTab('rules', actualHTML)
         const relevantRulesIDXs = getWorldLinkRuleElementIDXs(action);
 
-        const elements = actualHTMl.querySelectorAll('section.rule-form');
+        const elements = actualHTML.querySelectorAll('section.rule-form');
         elements.forEach(element => {
             const itemId = element.getAttribute('data-idx');
             if (relevantRulesIDXs.has(itemId)) {
@@ -76,8 +76,8 @@ async function renderItemSheetPF2e(sheet, html) {
     }
 }
 
-function styleTab(tab) {
-    const tabHTML = actualHTMl
+function styleTab(tab, actualHTML) {
+    const tabHTML = actualHTML
         .querySelector(`.sheet-tabs .tabs a.list-row[data-tab="${tab}"]`)
     tabHTML.classList.add(tag)
 }
