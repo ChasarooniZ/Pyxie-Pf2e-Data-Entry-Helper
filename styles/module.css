@@ -24,7 +24,7 @@ li.item.action.flexrow.pyxie-world-link {
   color: red;
 }
 
-sheet-body .content-link.pyxie-world-link[data-uuid] {
+.sheet-body .content-link.pyxie-world-link[data-uuid] {
   color: red;
 }
 
