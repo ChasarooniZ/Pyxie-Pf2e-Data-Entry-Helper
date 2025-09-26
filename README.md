@@ -4,6 +4,8 @@
 
 > A module that flags NPC abilities if they don't have a set category. Just like changes the color of the name on the sheet to red if there's no category set or something, to help keep us from missing those. Bonus points if it flags for any world link on the item description/self-applied effect/rule elements as well (like red for world link, orange for category or whatever)
 
+<img width="1362" height="883" alt="image" src="https://github.com/user-attachments/assets/4b780039-ea14-4479-a081-11e7be7959e0" />
+
 ## Table of Contents
 
 - [Pyxie. PF2e Data Entry Helper Module](#pyxie-pf2e-data-entry-helper-module)
