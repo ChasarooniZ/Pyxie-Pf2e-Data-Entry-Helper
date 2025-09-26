@@ -1,0 +1,4 @@
+/* Highlight Actions/Passives missing a category */
+li.item.action.flexrow.pyxie-missing-category {
+  color: red;
+}
