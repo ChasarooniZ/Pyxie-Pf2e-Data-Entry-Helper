@@ -8,10 +8,6 @@ export function setupDevHighlightActionsWorldLink(active) {
     }
 }
 
-//TODO also handle highlight the specific tab
-
-//TODO also handle highlight the specific instance
-
 const regexWorldLink = /@UUID\[(?!Compendium)/g;
 const tag = 'pyxie-world-link'
 
@@ -45,7 +41,8 @@ async function renderItemSheetPF2e(sheet, html) {
     if (hasWorldLinkDescription(action)) {
         styleTab('description', actualHTML)
 
-        const contentLinks = document.querySelectorAll('sheet-body .content-link[data-uuid]');
+        const contentLinks = actualHTML
+            .querySelectorAll('.sheet-body .content-link[data-uuid]');
         contentLinks.forEach(link => {
             const uuid = link.getAttribute('data-uuid');
             if (uuid && !uuid.startsWith('Compendium')) {
@@ -64,11 +61,11 @@ async function renderItemSheetPF2e(sheet, html) {
 
     if (hasWorldLinkRuleElement(action)) {
         styleTab('rules', actualHTML)
-        const relevantRulesIDXs = getWorldLinkRuleElementIDXs(action);
+        const relevantRulesIDXs = new Set(getWorldLinkRuleElementIDXs(action))
 
         const elements = actualHTML.querySelectorAll('section.rule-form');
         elements.forEach(element => {
-            const itemId = element.getAttribute('data-idx');
+            const itemId = Number(element.getAttribute('data-idx'));
             if (relevantRulesIDXs.has(itemId)) {
                 element.classList.add(tag);
             }
@@ -107,14 +104,13 @@ function getWorldLinkRuleElementIDXs(action) {
 
     return rules
         .map((rule, index) => {
-            const hasWorldLink = !rule.uuid?.startsWith('Compendium') ||
+            const hasWorldLink =
+                (rule?.uuid && !rule.uuid?.startsWith('Compendium')) ||
                 rule?.effects?.some(effect =>
                     effect?.uuid &&
                     effect?.uuid?.startsWith('Compendium')
                 );
-
-            // Return the index if it meets criteria, otherwise null
             return hasWorldLink ? index : null;
         })
-        .filter(index => index !== null); // Remove null values
+        .filter(index => index !== null);
 }
