@@ -1,4 +1,29 @@
 /* Highlight Actions/Passives missing a category */
 li.item.action.flexrow.pyxie-missing-category {
-  color: red;
+  color: orange;
+}
+
+li.item.action.flexrow.pyxie-world-link {
+  color: orangered;
+}
+
+.sheet-tabs .tabs a.list-row.pyxie-world-link {
+  color: orangered;
+}
+
+.form-group.pyxie-world-link[data-drop-zone="self-applied-effect"] {
+    label {
+        color: orangered
+    }
+    a.content-link {
+        color: orangered
+    }
+}
+
+.rule-form.pyxie-world-link h3 {
+    color: orangered
+}
+
+sheet-body .content-link.pyxie-world-link[data-uuid] {
+    color: orangered
 }

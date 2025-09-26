@@ -9,6 +9,7 @@ export function setupDevHighlightActionsNoCategory(active) {
 async function devHighlightActionsNoCategory(sheet, html) {
     const actualHTMl = html?.[0];
     const actor = sheet?.object;
+    if (actor?.type === 'character') return
 
     const relevantActionIDs = new Set(actor?.itemTypes?.action
         .filter(action => !action.system.category)
@@ -18,7 +19,7 @@ async function devHighlightActionsNoCategory(sheet, html) {
 
     elements.forEach(element => {
         const itemId = element.getAttribute('data-item-id');
-        if (idSet.has(itemId)) {
+        if (relevantActionIDs.has(itemId)) {
             element.classList.add('pyxie-missing-category');
         }
     });
