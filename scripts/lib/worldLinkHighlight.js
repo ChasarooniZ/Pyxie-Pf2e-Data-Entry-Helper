@@ -1,4 +1,4 @@
-export function setupDevHighlightActionsNoCategory(active) {
+export function setupDevHighlightActionsWorldLink(active) {
     if (active) {
         Hooks.on("renderActorSheetPF2e", renderActorSheetPF2e)
         Hooks.on("renderItemSheetPF2e", renderItemSheetPF2e)

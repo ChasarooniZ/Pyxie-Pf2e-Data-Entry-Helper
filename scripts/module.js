@@ -1,4 +1,5 @@
 import { setupDevHighlightActionsNoCategory } from "./lib/noCategoryHighlight.js";
+import { setupDevHighlightActionsWorldLink } from "./lib/worldLinkHighlight.js";
 
 Hooks.once('init', async function () {
 
