@@ -1,3 +1,6 @@
+## 0.1.1
+- Fixed bug with **Highlight World Links** that didn't account for Choiceset Flags (@Sól)
+
 ## 0.1.0
 
 - **Highlight No Category**
