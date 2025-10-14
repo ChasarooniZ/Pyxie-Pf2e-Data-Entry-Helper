@@ -105,7 +105,7 @@ function getWorldLinkRuleElementIDXs(action) {
     return rules
         .map((rule, index) => {
             const hasWorldLink =
-                (rule?.uuid && !rule.uuid?.startsWith('Compendium')) ||
+                (rule?.uuid && !(rule.uuid?.startsWith('Compendium') || (rule.uuid?.startsWith('{'))) ||
                 rule?.effects?.some(effect =>
                     effect?.uuid &&
                     effect?.uuid?.startsWith('Compendium')
