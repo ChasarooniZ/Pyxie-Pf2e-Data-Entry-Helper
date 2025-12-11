@@ -1,4 +1,9 @@
+## 0.1.2
+
+- Fixed bug with **Highlight World Links** that caused it to error out
+
 ## 0.1.1
+
 - Fixed bug with **Highlight World Links** that didn't account for Choiceset Flags (@Sól)
 
 ## 0.1.0
