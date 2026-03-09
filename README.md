@@ -19,6 +19,10 @@ You can access the changelog [here](/CHANGELOG.md).
 
 ## Features
 
+- **Module Scene Tester Dialog (Macro)**
+  - Adds a new macro that opens a dialog to test various file paths to make sure they're in a module or in the correct one if you only want to test for a specific module
+  - Should help to prevent the classic "oh that tile was only saved locally" issue
+  - Tests BG, FG, Tiles, Doors (that have art), Sounds
 - **Highlight No Category**
   - Highlights NPC actions with no category in Orange
 - **Highlight Actions with World Link UUIDs**

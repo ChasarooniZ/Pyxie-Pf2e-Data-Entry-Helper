@@ -26,6 +26,18 @@
       "path": "languages/en.json"
     }
   ],
+  "packs": [
+    {
+      "name": "pyxie-macros",
+      "label": "Pyxie Macros",
+      "path": "packs/pyxie-macros",
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",

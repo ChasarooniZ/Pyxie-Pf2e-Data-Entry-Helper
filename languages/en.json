@@ -1,3 +1,27 @@
 {
-    "MODULE.hello": "hello"
+  "pyxie": {
+    "dialog": {
+      "module-scene-tester": {
+        "title": "Test Scene for Module Path Issues",
+        "description": "This will test for scene placeables with path issues, IE the file referenced isn't in the module or if  '---' is selected in any module",
+        "inputs": {
+          "module-selector": "Select a Module:",
+          "test-all-scenes": "Test All Scenes (defaults to testing just the one)",
+          "dont-show-success": "Don't Show the Successfully Checked scenes"
+        },
+        "one-layer-note": "FYI, this is only testing the <b>{activeLayerID}</b> layer as it was selected when this was run</i>",
+        "buttons": {
+          "test": "Test"
+        }
+      }
+    },
+    "issues": {
+        "issue": "Issue",
+        "id": "ID",
+        "result": {
+            "success": "No issues Found in",
+            "failure": "Issues Found in"
+        }
+    }
+  }
 }

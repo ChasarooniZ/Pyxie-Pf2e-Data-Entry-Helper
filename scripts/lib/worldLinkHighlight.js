@@ -22,9 +22,9 @@ async function renderActorSheetPF2e(sheet, html) {
         (action) =>
           hasWorldLinkDescription(action) ||
           hasWorldLinkSelfEffect(action) ||
-          hasWorldLinkRuleElement(action)
+          hasWorldLinkRuleElement(action),
       )
-      .map((action) => action.id)
+      .map((action) => action.id),
   );
 
   const elements = actualHTMl.querySelectorAll("[data-item-id]");
@@ -45,11 +45,11 @@ async function renderItemSheetPF2e(sheet, html) {
     styleTab("description", actualHTML);
 
     const contentLinks = actualHTML.querySelectorAll(
-      ".sheet-body .content-link[data-uuid]"
+      ".sheet-body .content-link[data-uuid]",
     );
     contentLinks.forEach((link) => {
       const uuid = link.getAttribute("data-uuid");
-      if (uuid && !uuid.startsWith("Compendium")) {
+      if (uuid && isWorldUUID(uuid)) {
         link.classList.add(tag);
       }
     });
@@ -59,7 +59,7 @@ async function renderItemSheetPF2e(sheet, html) {
     styleTab("details", actualHTML);
 
     const selfEffect = actualHTML.querySelector(
-      '.form-group[data-drop-zone="self-applied-effect"]'
+      '.form-group[data-drop-zone="self-applied-effect"]',
     );
     selfEffect.classList.add(tag);
   }
@@ -80,7 +80,7 @@ async function renderItemSheetPF2e(sheet, html) {
 
 function styleTab(tab, actualHTML) {
   const tabHTML = actualHTML.querySelector(
-    `.sheet-tabs .tabs a.list-row[data-tab="${tab}"]`
+    `.sheet-tabs .tabs a.list-row[data-tab="${tab}"]`,
   );
   tabHTML.classList.add(tag);
 }
@@ -92,17 +92,17 @@ function hasWorldLinkDescription(action) {
 function hasWorldLinkSelfEffect(action) {
   return (
     !!action?.system?.selfEffect?.uuid &&
-    !action?.system?.selfEffect?.uuid?.startsWith("Compendium")
+    isWorldUUID(action?.system?.selfEffect?.uuid)
   );
 }
 
 function hasWorldLinkRuleElement(action) {
   return action?.system?.rules?.some(
     (rule) =>
-      (rule?.uuid && !rule.uuid?.startsWith("Compendium")) ||
+      (rule?.uuid && isWorldUUID(rule.uuid)) ||
       rule?.effects?.some(
-        (effect) => effect?.uuid && !effect?.uuid?.startsWith("Compendium")
-      )
+        (effect) => effect?.uuid && isWorldUUID(effect?.uuid),
+      ),
   );
 }
 
@@ -113,14 +113,15 @@ function getWorldLinkRuleElementIDXs(action) {
   return rules
     .map((rule, index) => {
       const hasWorldLink =
-        (rule?.uuid &&
-          !(
-            rule.uuid?.startsWith("Compendium") || rule.uuid?.startsWith("{")
-          )) ||
+        (rule?.uuid && isWorldUUID(rule?.uuid)) ||
         rule?.effects?.some(
-          (effect) => effect?.uuid && effect?.uuid?.startsWith("Compendium")
+          (effect) => effect?.uuid && isWorldUUID(effect?.uuid),
         );
       return hasWorldLink ? index : null;
     })
     .filter((index) => index !== null);
+}
+
+function isWorldUUID(uuid) {
+  return uuid?.startsWith("Item") || uuid?.startsWith("Actor");
 }
