@@ -84,7 +84,7 @@ export async function moduleSceneTester() {
       });
     }
 
-    if (relevantLayers.includes(activeLayerID) && activeLayerID === "tiles") {
+    if (!relevantLayers.includes(activeLayerID) || activeLayerID === "tiles") {
       for (const tile of canvas.scene.tiles.contents) {
         let tilePath = tile.texture.src;
         if (testPath(tilePath)) {
@@ -115,7 +115,7 @@ export async function moduleSceneTester() {
       }
     }
 
-    if (relevantLayers.includes(activeLayerID) && activeLayerID === "walls") {
+    if (!relevantLayers.includes(activeLayerID) || activeLayerID === "walls") {
       for (const wall of canvas.scene.walls.contents) {
         let wallPath = wall?.animation?.texture;
         if (wallPath && testPath(wallPath)) {
@@ -150,7 +150,7 @@ export async function moduleSceneTester() {
       }
     }
 
-    if (relevantLayers.includes(activeLayerID) && activeLayerID === "sounds") {
+    if (!relevantLayers.includes(activeLayerID) || activeLayerID === "sounds") {
       for (const sound of canvas.scene.sounds.contents) {
         let soundPath = sound?.path;
         if (soundPath && testPath(soundPath)) {

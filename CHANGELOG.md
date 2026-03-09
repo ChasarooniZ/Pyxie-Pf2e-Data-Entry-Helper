@@ -1,4 +1,8 @@
-## 2.0.0
+## 0.2.1
+
+- Fixed issue causing **Module Scene Tester Dialog** to fail to test everything
+
+## 0.2.0
 
 - **NEW**
   - **Module Scene Tester Dialog**
