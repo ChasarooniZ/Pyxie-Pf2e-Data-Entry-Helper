@@ -1,3 +1,7 @@
+## 1.0.0
+
+- Updated to support FoundryVTT `14`
+
 ## 0.2.1
 
 - Fixed issue causing **Module Scene Tester Dialog** to fail to test everything
